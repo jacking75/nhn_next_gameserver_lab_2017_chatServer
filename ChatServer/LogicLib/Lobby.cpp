@@ -126,7 +126,7 @@ namespace NLogicLib
 	{
 		auto findIter = std::find_if(std::begin(m_UserList), std::end(m_UserList), [userIndex](auto& lobbyUser) { return lobbyUser.pUser != nullptr && lobbyUser.pUser->GetIndex() == userIndex; });
 
-		if (findIter != std::end(m_UserList)) {
+		if (findIter == std::end(m_UserList)) {
 			return;
 		}
 
