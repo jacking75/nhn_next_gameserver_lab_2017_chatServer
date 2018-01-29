@@ -69,7 +69,7 @@ public:
 		m_IsConnected = true;
 
 		//socket Nonblocking
-		NonBlock(m_sock);
+		//NonBlock(m_sock);
 
 		m_Thread = std::thread([&]() { Update(); });
 		
@@ -109,9 +109,10 @@ public:
 	{
 		while (m_IsConnected)
 		{
-			//log("running...");
-			RecvData();
-			RecvBufferProcess();
+			if (RecvData())
+			{
+				RecvBufferProcess();
+			}
 		}
 	}
 
@@ -135,7 +136,7 @@ private:
 		ioctlsocket(s, FIONBIO, (unsigned long*)&u10n);
 	}
 
-	void RecvData()
+	bool RecvData()
 	{
 		fd_set read_set;
 		timeval tv;
@@ -146,19 +147,18 @@ private:
 		FD_SET(m_sock, &read_set);
 
 		if (select(m_sock + 1, &read_set, NULL, NULL, &tv) < 0) {
-			return;
+			return false;
 		}
 
 		if (FD_ISSET(m_sock, &read_set))
 		{
-			char recvBuff[MAX_PACKET_SIZE];
-
-			auto recvSize = recv(m_sock, recvBuff, MAX_PACKET_SIZE, 0);
+			char recvBuff[MAX_PACKET_SIZE * 3] = { 0, };
+			auto recvSize = recv(m_sock, recvBuff, MAX_PACKET_SIZE * 3, 0);
 
 			if (recvSize == 0)
 			{
 				//ClientLog("RecvData Error!Connection Failed...");
-				return;
+				return false;
 			}
 
 			if (recvSize < 0)
@@ -167,7 +167,7 @@ private:
 				if (WSAGetLastError() != WSAEWOULDBLOCK)
 				{
 					//ClientLog("WSAGetLastError()!=WSAEWOULDBLOCK Error!");
-					return;
+					return false;
 				}
 			}
 
@@ -175,12 +175,15 @@ private:
 			if ((m_recvSize + recvSize) >= MAX_SOCK_RECV_BUFFER)
 			{
 				//ClientLog("Buffer Overflow Error!");
-				return;
+				return false;
 			}
 
 			memcpy(&m_RecvBuffer[m_recvSize], recvBuff, recvSize);
 			m_recvSize += recvSize;
+			return true;
 		}
+
+		return false;
 	}
 
 	void RecvBufferProcess()

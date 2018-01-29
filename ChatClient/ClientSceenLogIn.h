@@ -29,7 +29,7 @@ public:
 		m_lbl2 = std::make_shared<label>((form&)*m_pForm, nana::rectangle(187, 17, 30, 18));
 		m_lbl2->caption("Port:");
 		m_Porttxt = std::make_shared<textbox>((form&)*m_pForm, nana::rectangle(214, 15, 60, 20));
-		m_Porttxt->caption("23452");
+		m_Porttxt->caption("32452");
 
 		m_Connectbtn = std::make_shared<button>((form&)*m_pForm, nana::rectangle(283, 14, 102, 23));
 		m_Connectbtn->caption("Connent");

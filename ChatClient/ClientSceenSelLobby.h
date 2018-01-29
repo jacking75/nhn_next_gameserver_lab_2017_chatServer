@@ -20,7 +20,7 @@ public:
 
 		auto diffTimeSec = std::chrono::duration_cast<std::chrono::seconds>(curTime - m_TimeLastedReqLobbyList);
 
-		if (diffTimeSec.count() > 3)
+		if (diffTimeSec.count() > 10)
 		{
 			m_TimeLastedReqLobbyList = curTime;
 
