@@ -5,6 +5,7 @@ using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 #include "../../Common/ErrorCode.h"
 #include "../../Common/PacketID.h"
 #include "../../Common/Packet.h"
+#include "../LogicLib/Room.h"
 
 #include "Helper.h"
 
