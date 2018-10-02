@@ -68,14 +68,8 @@ namespace NLogicLib
 		}
 		
 		// 유저 정보를 룸에 들어왔다고 변경한다.
-		pUser->EnterRoom(lobbyIndex, pRoom->GetIndex());
-
-		// 로비에 유저가 나갔음을 알린다
-		pLobby->NotifyLobbyLeaveUserInfo(pUser);
+		pUser->EnterRoom(lobbyIndex, pRoom->GetIndex());		
 		
-		// 로비에 룸 정보를 통보한다.
-		pLobby->NotifyChangedRoomInfo(pRoom->GetIndex());
-
 		// 룸에 새 유저 들어왔다고 알린다
 		pRoom->NotifyEnterUserInfo(pUser->GetIndex(), pUser->GetID().c_str());
 		
@@ -128,13 +122,7 @@ namespace NLogicLib
 
 		// 룸에 유저가 나갔음을 통보
 		pRoom->NotifyLeaveUserInfo(pUser->GetID().c_str());
-
-		// 로비에 새로운 유저가 들어왔음을 통보
-		pLobby->NotifyLobbyEnterUserInfo(pUser);
-
-		// 로비에 바뀐 방 정보를 통보
-		pLobby->NotifyChangedRoomInfo(pRoom->GetIndex());
-		
+				
 		m_pRefNetwork->SendData(packetInfo.SessionIndex, (short)PACKET_ID::ROOM_LEAVE_RES, sizeof(resPkt), (char*)&resPkt);
 		return ERROR_CODE::NONE;
 
@@ -231,9 +219,7 @@ namespace NLogicLib
 
 		// 방의 게임 상태 변경
 		pRoom->GetGameObj()->SetState(GameState::STARTTING);
-
-		//TODO: 로비의 유저에게 방의 상태 변경 통보
-
+				
 		// 방의 다른 유저에게 방장이 게임 시작 요청을 했음을 알리고
 		pRoom->SendToAllUser((short)PACKET_ID::ROOM_MASTER_GAME_START_NTF, 
 								0, 

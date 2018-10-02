@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ConsoleHost2", "ConsoleHost.vcxproj", "{40A8B7BD-0CF1-4B08-AC21-8B07CA501D72}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ConsoleHost2", "ConsoleHost2.vcxproj", "{40A8B7BD-0CF1-4B08-AC21-8B07CA501D72}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ServerNetLib", "..\ServerNetLib\ServerNetLib.vcxproj", "{41884265-9D35-44B2-9B44-57D7DDA57AD8}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LogicLib2", "..\LogicLib\LogicLib2.vcxproj", "{1BC634FF-1724-488D-898F-3B669CDE2200}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LogicLib2", "..\LogicLib2\LogicLib2.vcxproj", "{1BC634FF-1724-488D-898F-3B669CDE2200}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

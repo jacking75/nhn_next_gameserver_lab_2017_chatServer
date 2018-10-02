@@ -62,13 +62,7 @@ namespace NLogicLib
 		ERROR_CODE LobbyList(PacketInfo packetInfo);
 
 		ERROR_CODE LobbyEnter(PacketInfo packetInfo);
-
-		ERROR_CODE LobbyRoomList(PacketInfo packetInfo);
-
-		ERROR_CODE LobbyUserList(PacketInfo packetInfo);
-
-		ERROR_CODE LobbyChat(PacketInfo packetInfo);
-
+				
 		ERROR_CODE LobbyLeave(PacketInfo packetInfo);
 
 		ERROR_CODE RoomEnter(PacketInfo packetInfo);

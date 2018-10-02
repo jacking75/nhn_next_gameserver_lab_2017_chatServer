@@ -55,31 +55,19 @@ namespace NLogicLib
 		
 		short GetUserCount();
 
-		
-		void NotifyLobbyEnterUserInfo(User* pUser);
-		
-		ERROR_CODE SendRoomList(const int sessionId, const short startRoomId);
-
-		ERROR_CODE SendUserList(const int sessionId, const short startUserIndex);
-
-		void NotifyLobbyLeaveUserInfo(User* pUser);
-
+				
 		Room* CreateRoom();
 
 		Room* GetRoom(const short roomIndex);
-
-		void NotifyChangedRoomInfo(const short roomIndex);
-
+				
 		auto MaxUserCount() { return (short)m_MaxUserCount; }
 
 		auto MaxRoomCount() { return (short)m_RoomList.size(); }
-
-		void NotifyChat(const int sessionIndex, const char* pszUserID, const wchar_t* pszMsg);
+		
 
 	protected:
 		void SendToAllUser(const short packetId, const short dataSize, char* pData, const int passUserindex = -1);
-
-		
+				
 
 	protected:
 		User* FindUser(const int userIndex);

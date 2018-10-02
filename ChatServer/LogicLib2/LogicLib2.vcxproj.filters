@@ -13,8 +13,6 @@
     <ClInclude Include="..\..\Common\Packet.h">
       <Filter>Common</Filter>
     </ClInclude>
-    <ClInclude Include="LobbyManager.h" />
-    <ClInclude Include="Lobby.h" />
     <ClInclude Include="..\..\Common\ErrorCode.h">
       <Filter>Common</Filter>
     </ClInclude>
@@ -23,6 +21,8 @@
     </ClInclude>
     <ClInclude Include="ConnectedUserManager.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="Lobby.h" />
+    <ClInclude Include="LobbyManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
@@ -32,9 +32,9 @@
     <ClCompile Include="Room.cpp" />
     <ClCompile Include="PacketProcessLobby.cpp" />
     <ClCompile Include="PacketProcessRoom.cpp" />
-    <ClCompile Include="LobbyManager.cpp" />
-    <ClCompile Include="Lobby.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="Lobby.cpp" />
+    <ClCompile Include="LobbyManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">
